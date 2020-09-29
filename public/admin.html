@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="GitLab Pages">
+    <title>Virtual World Imperial</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="client-setup.html">Client Setup</a>
+      <a href="world-edit-guard.html">World Edit/Guard</a>
+      <a href="mini-games.html">Mini Games</a>
+      <a href="minecraft-deployment.html">Minecraft Deployment</a>
+      <a href="mumble-deployment.html">Mumble Deployment</a>
+      <a href="plugins.html">Plugin Development</a>
+      <a href="admin.html">Administration</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+
+    <h1>Administration</h1>
+
+
+<h2>Minecraft server</h2>
+
+<p>On the Minecraft server there are 3 types of users: Server, Operators (OPs) and Users.</p>
+
+<h3>Users</h3>
+<p>Everyone who joins the Minecraft server as a player will be a normal user.
+Their gamemode is by default adventure mode. This means that they cannot place or break blocks in the Minecraft world but they can interact with items such as buttons, signs, doors.
+They can also run the /goto command and cannot send hyperlinks in the chat</p>
+
+<h3>Operators</h3>
+<p>OPs have access to higher level commands for example they can: change the time/weather, add/remove OPs , teleport themselves/others, change gamemodes (giving them the ability to fly), kick and ban others.
+Operators can be set in the ops.json file in the backend directory. Simply look up the UUID of the Minecraft account you want to make OP <a href="https://mcuuid.net/">Here</a>. When the server starts the OPs are found from the ops.json file, since issuing the ops command does not add players to the ops.json file they will not persist through server restarts. So to make an OP persist add them to the ops.json file rather than using the ops command.</p>
+
+<h3>Server</h3>
+<p>The server is the highest level user. When running the server manually you are able to type commands into the shell form which the server is running. However since the gitlab runner starts the server you have to RCON into the server. RCON is a protocol that allows server administrators to remotely execute Minecraft commands as the server. This allows them to stop the server.</p>
+
+<h2>Mumble (Murmur) server</h2>
+
+<p>On the mumble server there are 4 types of users: Superuser, Admins, Authorised Users, Users.</p>
+
+<h3>Users</h3>
+<p>Everyone who joins the server is a user. As a user they will join the lobby channel but they will not have the ability to speak or hear or move channels. But they can register themselves.</p>
+
+<h3>Authorised (Registered) Users</h3>
+<p>Authorised users can speak to and hear others and can move channels. They have access to lobby and Minecraft A...C channels.</p>
+
+<h3>Admins</h3>
+<p>Authorised users can be made admins by other admins or by the Superuser. Admins are able to: create channels, kick/ban/unregister users, move users to different channels, and access the root channel.</p>
+
+<h3>Superuser</h3>
+<p>The Superuser is created along with the mumble server. The Superuser account has a password when joining the mumble server and is set during server setup. The Superuser has all of the functions of Admin but cannot speak.</p>
+
+<h2>Admin Page (for the lectures/quiz database)</h2>
+<p>Currently the admin page is not password protected so anyone on the imperial VPN can access this page. On this page you can insert lectures and quizzes into the database, these changes are reflected in real time on the minecraft server.</p>
+
+  </body>
+</html>

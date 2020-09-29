@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="GitLab Pages">
+    <title>Virtual World Imperial</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="client-setup.html">Client Setup</a>
+      <a href="world-edit-guard.html">World Edit/Guard</a>
+      <a href="mini-games.html">Mini Games</a>
+      <a href="minecraft-deployment.html">Minecraft Deployment</a>
+      <a href="mumble-deployment.html">Mumble Deployment</a>
+      <a href="plugins.html">Plugin Development</a>
+      <a href="admin.html">Administration</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+
+    <h1>Mumble</h1>
+
+    <p>To enable users in the Virtual World to communicate to each other through voice chat we use the application <a href = "https://www.mumble.info/">Mumble</a>.</p>
+
+  <h2>
+    Installation
+  </h2>
+      <p>Mumble is well documented making the installation of the server very easy.
+      <a href = "https://wiki.mumble.info/wiki/Installing_Mumble">Mumble Wikipedia</a></p>
+      <h3>Ubuntu</h3>
+      <p>To install and configure the server use:
+      <p><mark>sudo apt-get install mumble-server</mark></p>
+      <p><mark>sudo dpkg-reconfigure mumble-server</mark></p>
+      <p>Follow the configuring mumble-server prompt and setup the Superuser password. This password is important as it is needed to configure the server.</p>
+  <h2>
+    Configuration
+  </h2>
+  <ul>
+    <li>
+      To make changes to the config file :
+      <mark>
+        sudo (nano/vim) /etc/mumble-server.ini
+      </mark>
+    </li>
+    <li>
+      Here you can make changes such as: welcome messages, port, server password, max users. Restart the server to see the changes on the server.
+    </li>
+    <li>
+      To make other changes such as adding channels, ACLs, Admins connect to the server as Superuser via the mumble client app using the correct IP and port of the server.
+    </li>
+  </ul>
+
+  <h2>
+    Server Commands
+  </h2>
+    <h3>
+      To start, stop and restart the server
+    </h3>
+  <ul>
+    <li>
+      sudo service mumble-server start
+    </li>
+    <li>
+      sudo service mumble-server stop
+    </li>
+    <li>
+      sudo service mumble-server restart
+    </li>
+  </ul>
+
+  <h3>
+    Connection as Superuser
+  </h3>
+  <p>
+    The Superuser account is used to configure the initial administrator accounts on the mumble server.
+  </p>
+  <ol>
+    <li>
+      Open the mumble client
+    </li>
+    <li>
+      Select Connect from the Server menu at the top
+    </li>
+    <li>
+      Click the Add New button on the bottom of the "Mumble Server Connect" window
+    </li>
+    <li>
+      Enter a description in the label box. This will help you easily identify the different servers you connect to
+    </li>
+    <li>
+      Enter the Mumble Server’s hostname or IP address and port number in the appropriate box
+    </li>
+    <li>
+      In the Username box enter the name SuperUser
+    </li>
+    <li>
+      Once you enter the username SuperUser a password box will appear. Make sure you enter the correct password for the user account SuperUser
+    </li>
+    <li>
+      Press the OK button on the bottom. This will bring you back to the "Mumble Server Connect" window and your newly added connection information will be displayed under the Favorites list
+    </li>
+    <li>
+      Highlight the server name you would like to connect to and press the Connect button on the bottom of the window
+    </li>
+  </ol>
+
+  <h3>
+    Adding a User to the Admin group
+  </h3>
+  <ol>
+    <li>
+      Connect to the server using the account you would like to be made Admin
+    </li>
+    <li>
+      Register the account by right clicking on your name and selecting register account
+    </li>
+    <li>
+      Reconnect to the server with the Superuser or Admin account
+    </li>
+    <li>
+      Right click the Root channel at the top and select edit.
+      The Root channel is where your server properties are stored and any channel
+      below this channel will inherit the account policies unless explicitly excluded
+    </li>
+    <li>
+      Click on the Groups tab at the top
+    </li>
+    <li>
+      Select the 'admin' group from the Group dropdown box
+    </li>
+    <li>
+      Select or Type the username you wish to add to the 'Admin' group in the dropdown box
+      below the Members box. Then click the Add button to the right
+    </li>
+    <li>
+      Click the OK button on the bottom right
+    </li>
+  </ol>
+  </body>
+</html>

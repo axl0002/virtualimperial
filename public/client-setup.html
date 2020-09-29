@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="GitLab Pages">
+    <title>Virtual World Imperial</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="client-setup.html">Client Setup</a>
+      <a href="world-edit-guard.html">World Edit/Guard</a>
+      <a href="mini-games.html">Mini Games</a>
+      <a href="minecraft-deployment.html">Minecraft Deployment</a>
+      <a href="Mumble-deployment.html">Mumble Deployment</a>
+      <a href="plugins.html">Plugin Development</a>
+      <a href="admin.html">Administration</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+
+    <h1>Client Setup Guide</h1>
+
+    <h2>Imperial VPN</h2>
+    <p>To connect to the Minecraft server and the Mumble server you need to be on the Imperial network.
+      So if you are not on Imperial's Campus, make sure you are connected to the imperial VPN!
+      If you have not got it setup already you can find all the information on how to set it up
+    <a href = "https://www.imperial.ac.uk/admin-services/ict/self-service/connect-communicate/remote-access/virtual-private-network-vpn">here</a>
+
+    <h2>Minecraft Setup</h2>
+
+    <h3>Installation</h3>
+    <ol>
+      <li>Go to the <a href="https://www.minecraft.net/en-us/download/">Offical Minecraft Downloads</a></li>
+      <li>Download the correct Minecraft launcher for your operating system.</li>
+      <li>Open the launcher and enter your credentials.</li>
+    </ol>
+
+    <h3>Joining the world without Mumble (Voice chat)</h3>
+    <p>It is important to follow these steps to join the server since the server is run on an older version of Minecraft (1.15.2).
+      Starting the game without selecting the correct version of Minecraft will prohibit you from joining the server.</p>
+
+    <ol>
+      <li>Open the Minecraft launcher but do not press play.</li>
+      <center>
+        <img src="images/Minecraft_Launcher.png" alt="Minecraft Launcher" width = 50%><br>
+      </center>
+      <li>Click on the Installations tab at the top and create a installation by clicking new.</li>
+      <center>
+        <img src="images/Installations_tab.png" alt="Installations tab" width = 50%><br>
+      </center>
+      <li>Choose a name for your installation and in the version tab choose release 1.15.2 from the drop down.</li>
+      <li>Click on “create” and go back to the play tab.</li>
+      <li>At the bottom center, select the server you just created and press play.</li>
+      <li>The launcher will close and a new game window will open.</li>
+      <li>On the Minecraft home screen select multiplayer.</li>
+      <center>
+        <img src="images/Minecraft_main_menu.png" alt="Minecraft main menu" width = 50%><br>
+      </center>
+      <li>To add a new server click Direct Connect and enter the server address. It will be in the format IPaddress:port (eg. 123.123.123.123:25565).</li>
+      <center>
+        <img src="images/direct_connect.png" alt="Add server" width = 50%><br>
+      </center>
+      <li>Finally connect to the server by clicking Join Server. </li>
+    </ol>
+
+    <h3>Joining the world with Mumble</h3>
+    <p> Follow all the installation sections below then return here once done·</p>
+
+    <ol>
+      <li>Open the Minecraft launcher, in the version box on the left of the Play button it should say Minercaft forge 1.15.2 if not select this verison from the drop down.</li>
+      <li>Start the Mumble client and connect to the Mumble server with the right address and port number.</li>
+      <li>Press Play in the Minecraft launcher and the Minercaft Forge game window will load, it usually takes a little longer than starting an normal verison of minecraft since it is modded.</li>
+      <li>Once on the home screen you can connect to the server as normal. When you join the Minercaft server in the Mumble client window it should say Minecraft linked.</li>
+    </ol>
+
+    <h2>Mumble</h2>
+
+    <p> To install Mumble follow the install Mumble steps (not Mumble-server) on the Mumble wiki <a href="https://wiki.Mumble.info/wiki/Installing_Mumble#Download_and_Install_Mumble_and_Mumble-Server_.28aka_Murmur.29">here</a>.<p>
+
+    <h2>MumbleLink and Forge</h2>
+    <p>To link Minecraft to Mumble so that we can use 3D positional audio, we need to install Forge a Minecraft modding API and Mumblelink the mod that links Minercaft to Mumble.</p>
+
+    <h3>Forge</h3>
+    <ol>
+      <li>Download Minecraft Forge 1.15.2 <a href="http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.15.2.html">here<a>.</li>
+      <li>Run the .jar</li>
+        <h4>Ubuntu</h4>
+        <ul>
+          <li>Find the download in your terminal.</li>
+          <li>Run command “java -jar file_name.jar”</li>
+        </ul>
+
+        <h4>Windows</h4>
+        <ul>
+          <li>Find the download in file explorer.</li>
+          <li>Right-click on the .jar (make sure you have java).</li>
+          <li>Then “Open with” and select Java.</li>
+        </ul>
+
+        <h4>Mac</h4>
+        <ul>
+          <li>Bottom with screenshots</li>
+        </ul>
+      </br>
+      <li>A window will open, keep the "Install Client" box ticked.</li>
+
+      <li>Click install and wait for it to finish.</li>
+
+
+      <li>Download Mumblelink 1.15.2 <a href="https://www.curseforge.com/minecraft/mc-mods/Mumblelink">here</a>.</li>
+
+      <li>Move the download .jar into the mods folder of your minecraft directory.
+      <a href="https://help.minecraft.net/hc/en-us/articles/360035131551-Where-are-Minecraft-files-stored-#:~:text=Press%20Win%2BR%2C%20then%20type,minecraft%2C%20then%20press%20Ok.&text=In%20the%20Finder%2C%20from%20the,%2Fminecraft%2C%20and%20click%20Go.">where is my minecraft directory?</a></li>
+
+      <li>Launch minecraft and make sure the forge 1.15.2 version is selected next to the play button</li>
+
+    </ol>
+
+
+    <h4>Mac Forge Installtion</h4>
+    <ol>
+      <li>Double click the forge jar file</li>
+      <center>
+        <img src="images/mac-forge-1.png" alt="Add server" width = 30%><br>
+      </center>
+
+      <li>The following window might appear (if not, go to 4 directly)</li>
+      <center>
+        <img src="images/mac-forge-2.png" alt="Add server" width = 30%><br>
+      </center>
+      <li>Run it from settings</br>
+      <center>
+        <img src="images/mac-forge-3.png" alt="Add server" width = 30%><br>
+      </center>
+      Go to security & privacy</br>
+      <center>
+        <img src="images/mac-forge-4.png" alt="Add server" width = 30%><br>
+      </center>
+      Go to general and click open anyway</br>
+      <center>
+        <img src="images/mac-forge-5.png" alt="Add server" width = 30%><br>
+      </center>
+      Click open</li>
+
+      <li>Install the forge client</br>
+      <center>
+        <img src="images/mac-forge-6.png" alt="Add server" width = 30%><br>
+      </center>The following window appears once the installation is completed</li>
+      <center>
+        <img src="images/mac-forge-7.png" alt="Add server" width = 30%><br>
+      </center>
+
+      <li>Download Mumblelink 1.15.2 <a href="https://www.curseforge.com/minecraft/mc-mods/Mumblelink">here</a>.</li>
+
+      <li>Finally we will add the mod. Press CMD + SHIFT + G  and paste ~/Library/Application Support/minecraft/mods</li>
+      <center>
+        <img src="images/mac-forge-8.png" alt="Add server" width = 30%><br>
+      </center>
+      <li>Paste the Mumblelink mod in that folder. You’re good to go using mumble positional audio chat in the virtual environment!</li>
+
+  </body>
+</html>

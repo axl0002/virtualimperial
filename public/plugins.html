@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="GitLab Pages">
+    <title>Virtual World Imperial</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="client-setup.html">Client Setup</a>
+      <a href="world-edit-guard.html">World Edit/Guard</a>
+      <a href="mini-games.html">Mini Games</a>
+      <a href="minecraft-deployment.html">Minecraft Deployment</a>
+      <a href="mumble-deployment.html">Mumble Deployment</a>
+      <a href="plugins.html">Plugin Development</a>
+      <a href="admin.html">Administration</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+
+    <h1>Plugin Development</h1>
+
+    <p> The server is a spigot server but it can run some bukkit plugins and all spigot plugins. </p>
+    <h2>Adding a new plugin</h2>
+
+    <p> To add a plugin simply download the plugins .jar file and move it to the plugins folder in backend/plugins.
+        Push the newly added .jar file to git.
+        Restarting the server will run the plugin and could cause it to create new files in the plugins folder, do not push these files to git. </p>
+
+    <h2>Writing a spigot/bukkit plugin</h2>
+    <p>It is possible to write your own plugin to customize the functionality to fit the server.
+      <a href="https://www.youtube.com/playlist?list=PLfu_Bpi_zcDNEKmR82hnbv9UxQ16nUBF7">Here</a> is a helpful series teaching how to develop minecraft plugins.
+      In the backend/plugins_src folder add your plugin source code and it will be packaged at build time. Make sure the plugin is using Maven.</p>
+
+    <h2>Imperial plugin</h2>
+    <p>Inside backend/plugins_src there is an imperial plugin this plugin is developed specifically for this server.
+    It controls: <p/>
+
+    <ul>
+      <li>Welcome messages for players</li>
+      <li>Teleportation between buildings</li>
+      <li>Linking signs to lectures</li>
+      <li>Setting and playing quizzes</li>
+    </ul>
+
+    <p>All the classes are located in imperial/src/main/java/me/studentshaper/test</p>
+
+    <h3>General.java</h3>
+    <p>General.java is the main class that has the onEnable and OnDisable methods for the server. A new class must be registered inside the onEnable method. The connection to MongoDB is made inside onEnable and an instance of the database can be fetched using General.getMongoClient</p>
+
+    <h2>Events</h2>
+    <p>Classes in the events directory implement the listener interface.</p>
+
+    <h3>events/JoinServer.java</h3>
+    <p>Listens for the PlayerJoinEvent. Whenever a player joins the server onJoin will be run.</p>
+
+    <h3>events/ClickSign.java</h3>
+    <p>Listens for the PlayerInteractEvent if the interacted object is a sign.</p>
+
+
+
+    <ul>
+      <li>    If the sign is a lecture sign it will have “lecture” written on the first line and the course on the second line (“EEE”) and room number (“408”) on the third. If there is a lecture scheduled at the current time (UK, London) then it will return the link to the lecture, otherwise it will return the time of the next lecture in the day. If there are no more lectures scheduled for the day it will return no lectures today.</li>
+      <li>    If the sign is an answer sign (it was created using the setQuiz command) it will have a red or green stained glass block 4 blocks above it. If the glass is red it means it's the incorrect answer and if it's green it is the correct answer. It is possible to change the behaviour of clicking the right and wrong answer signs. Currently correct answers are rewarded with experience points and diamonds.</li>
+      <li>    If the answer sign is a quiz sign it will have “quiz” written on the first line and the quiz name on the second. Players that interact with the sign will be teleported to the first question room of the quiz.</li>
+    </ul>
+
+
+    <h3>events/ClickGUI.java</h3>
+    <p>Listens for players clicking the GUI opened by the /goto command
+
+    Teleport locations
+    EEE 			= 243, 13, 88
+    Library 		= 100, 4, 156
+    Business school	= 350, 7, 98
+
+    To add a new teleport location copy a case in the switch statement and change the msg() and the Location coordinates.</p>
+
+    <h2>Commands</h2>
+    <p>Classes in the command directory implement the CommandExecutor interface.</p>
+
+    <h3>commands/Goto.java</h3>
+    <p>This class handles the /goto command. It opens up a small inventory with clickable items.
+    To increase the size of the inventory change the size field in gui.
+    To add new items into the inventory create a new ItemStack (eg. ItemStack computing = new ItemStack(Material.GOLD) )
+    Then get and change the Item Meta of computing to rename the item from GOLD to computing. Finally add the new ItemStack into the ItemStack array menuItems.</p>
+
+    <h3>commands/SetQuiz.java</h3>
+    <p>This class handles the /setQuiz command. The command takes a quiz name as it’s argument. It spawns the quiz room structure for the quiz creating rooms for each question linked by teleporting signs. It makes sure the questions and answers in the database can fit on a minecraft sign before creating the structure.</p>
+
+
+  </body>
+</html>

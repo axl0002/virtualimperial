@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="GitLab Pages">
+    <title>Virtual World Imperial</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="client-setup.html">Client Setup</a>
+      <a href="world-edit-guard.html">World Edit/Guard</a>
+      <a href="mini-games.html">Mini Games</a>
+      <a href="minecraft-deployment.html">Minecraft Deployment</a>
+      <a href="mumble-deployment.html">Mumble Deployment</a>
+      <a href="plugins.html">Plugin Development</a>
+      <a href="admin.html">Administration</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+
+    <h1>Minecraft server</h1>
+    <h2>
+      Introduction
+    </h2>
+    <p>
+      This section will go through setting up a minecraft server in order to run the Minecraft virtual world.
+      One of the key features if you intend to develop your own version of the world is the CI/CD pipeline that
+      will make your workflow and continuous deployment much easier. The following examples apply to a Standalone
+      Doc VM runningUbuntu 18.04.4 LTS (GNU/Linux 5.4.0-42-generic x86_64)
+    </p>
+
+  <h2>
+    Setting up
+  </h2>
+  <p>
+    First we need to setup some common tools on our server to support the minecraft environment.
+  </p>
+  <h3>
+    Dev dependencies
+  </h3>
+  <h4>
+    Java
+  </h4>
+  <p>
+    Install Java dependencies: <br>
+    <mark>
+      sudo apt install openjdk-8-jre-headless<br>
+      sudo apt install openjdk-8-jdk-headless
+    </mark>
+  </p>
+  <h4>Maven</h4>
+  <p>Install Maven to build plugins:<br>
+    <mark>sudo apt install maven</mark>
+  </p>
+  <h4>Git</h4>
+  <p> Install GIT for version control:<br>
+      <mark>sudo apt install git</mark>
+  </p>
+
+  <h3>
+    Minecraft Dependencies
+  </h3>
+  <h4>
+    mcrcon
+  </h4>
+  <p>
+    Installing mcrcon will give you control over the minecraft server from the outside of the running process.
+    This is especially useful when we get to the CI/CD pipeline<br>
+    You can follow this amazing tutorial to install mcrcon https://github.com/Tiiffi/mcrcon
+  </p>
+
+  <h3>
+    Firewall set up
+  </h3>
+  <p>
+    We will need to open two ports for the minecraft server: one for the world (25565), and one for remote control (25575).
+    This can be achieve with:<br>
+    <mark>
+      sudo ufw allow 25565<br>
+      sudo ufw allow 25575
+    </mark>
+  </p>
+
+  <h2>
+    Deployment
+  </h2>
+  <p>
+    We will go through two different deployment approaches:
+    <ul>
+      <li>
+        Cloning the git and running the world server as is without future integration.
+        This will be useful if you intend to deploy multiple copies of the server on a cluster
+      </li>
+      <li>
+        CI/CD setup for continuous workflow in a development phase.
+        This will be useful if you plan to carry on the integration of the project on a different server
+      </li>
+    </ul>
+  </p>
+
+  <h2>
+    Production deployment
+  </h2>
+  <p>
+    This deployment does not require a pipeline setup and you simply need to run the server
+  </p>
+
+  <h2>
+    CI / CD deployment
+  </h2>
+  </body>
+</html>
